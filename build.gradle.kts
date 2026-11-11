@@ -42,6 +42,15 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
+configurations.configureEach {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "com.infobip") {
+            useVersion("11.0.1")
+            because("Reproducing the bug fixed in Infobip 11.0.2")
+        }
+    }
+}
+
 kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
