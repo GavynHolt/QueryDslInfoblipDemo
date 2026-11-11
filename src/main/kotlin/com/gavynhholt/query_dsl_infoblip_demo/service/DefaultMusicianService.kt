@@ -9,9 +9,7 @@ import com.querydsl.core.BooleanBuilder
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
-import org.springframework.util.Assert
 import java.util.UUID
 
 @Service
@@ -25,13 +23,44 @@ class DefaultMusicianService(
     }
 
     override fun getById(id: UUID): Musician {
-        return musicianRepository.findByIdOrNull(id) ?: throw NoSuchElementException("Musician not found by id: $id")
+        val qMusician = QMusician.musician
+
+        return musicianRepository.queryOne { query ->
+            query.select(musicianRepository.entityProjection())
+                .from(qMusician)
+                .where(
+                    qMusician.id.eq(id),
+                    qMusician.deleted.isFalse()
+                )
+        }.orElseThrow {
+            NoSuchElementException("Musician not found by id: $id")
+        }
     }
 
     override fun update(musician: Musician): Musician {
-        Assert.notNull(musician.id, "id is required")
+        val id = requireNotNull(musician.id) { "id is required" }
+        val qMusician = QMusician.musician
 
-        return musicianRepository.save(musician)
+        val result = musicianRepository.update { query ->
+            query.set(qMusician.firstName, musician.firstName)
+                .set(qMusician.lastName, musician.lastName)
+                .set(qMusician.email, musician.email)
+                .set(qMusician.city, musician.city)
+                .set(qMusician.instrument, musician.instrument)
+                .set(qMusician.yearsOfExperience, musician.yearsOfExperience)
+                .set(qMusician.hourlyRate, musician.hourlyRate)
+                .where(
+                    qMusician.id.eq(id),
+                    qMusician.deleted.isFalse()
+                )
+                .execute()
+        }
+
+        if (result == 0L) {
+            throw NoSuchElementException("Musician not found by id: $id")
+        }
+
+        return getById(id)
     }
 
     override fun delete(id: UUID) {
@@ -104,6 +133,9 @@ class DefaultMusicianService(
         if (params.maxHourlyRate != null) {
             builder.and(qMusician.hourlyRate.loe(params.maxHourlyRate))
         }
+
+        // never return soft-deleted items
+        builder.and(qMusician.deleted.isFalse())
 
         return musicianRepository.findAll(builder, pageable)
     }
