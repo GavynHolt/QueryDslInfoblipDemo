@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+            http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd">
+
+    <changeSet id="2" author="gavyn">
+        <insert tableName="musician">
+            <column name="first_name" value="Chick"/>
+            <column name="last_name" value="Corea"/>
+            <column name="email" value="chick.corea@example.com"/>
+            <column name="city" value="Chelsea"/>
+            <column name="instrument" value="PIANO"/>
+            <column name="years_of_experience" valueNumeric="60"/>
+            <column name="hourly_rate" valueNumeric="250.00"/>
+            <column name="deleted" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="musician">
+            <column name="first_name" value="Pat"/>
+            <column name="last_name" value="Metheny"/>
+            <column name="email" value="pat.metheny@example.com"/>
+            <column name="city" value="Lee's Summit"/>
+            <column name="instrument" value="GUITAR"/>
+            <column name="years_of_experience" valueNumeric="50"/>
+            <column name="hourly_rate" valueNumeric="250.00"/>
+            <column name="deleted" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="musician">
+            <column name="first_name" value="Roy"/>
+            <column name="last_name" value="Haynes"/>
+            <column name="email" value="roy.haynes@example.com"/>
+            <column name="city" value="Boston"/>
+            <column name="instrument" value="DRUMS"/>
+            <column name="years_of_experience" valueNumeric="75"/>
+            <column name="hourly_rate" valueNumeric="200.00"/>
+            <column name="deleted" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="musician">
+            <column name="first_name" value="Antonio"/>
+            <column name="last_name" value="Sanchez"/>
+            <column name="email" value="antonio.sanchez@example.com"/>
+            <column name="city" value="Mexico City"/>
+            <column name="instrument" value="DRUMS"/>
+            <column name="years_of_experience" valueNumeric="30"/>
+            <column name="hourly_rate" valueNumeric="150.00"/>
+            <column name="deleted" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="musician">
+            <column name="first_name" value="Herbie"/>
+            <column name="last_name" value="Hancock"/>
+            <column name="email" value="herbie.hancock@example.com"/>
+            <column name="city" value="Chicago"/>
+            <column name="instrument" value="PIANO"/>
+            <column name="years_of_experience" valueNumeric="60"/>
+            <column name="hourly_rate" valueNumeric="250.00"/>
+            <column name="deleted" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="musician">
+            <column name="first_name" value="Wayne"/>
+            <column name="last_name" value="Shorter"/>
+            <column name="email" value="wayne.shorter@example.com"/>
+            <column name="city" value="Newark"/>
+            <column name="instrument" value="SAXOPHONE"/>
+            <column name="years_of_experience" valueNumeric="60"/>
+            <column name="hourly_rate" valueNumeric="200.00"/>
+            <column name="deleted" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="musician">
+            <column name="first_name" value="Esperanza"/>
+            <column name="last_name" value="Spalding"/>
+            <column name="email" value="esperanza.spalding@example.com"/>
+            <column name="city" value="Portland"/>
+            <column name="instrument" value="BASS"/>
+            <column name="years_of_experience" valueNumeric="20"/>
+            <column name="hourly_rate" valueNumeric="175.00"/>
+            <column name="deleted" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="musician">
+            <column name="first_name" value="John"/>
+            <column name="last_name" value="Scofield"/>
+            <column name="email" value="john.scofield@example.com"/>
+            <column name="city" value="Dayton"/>
+            <column name="instrument" value="GUITAR"/>
+            <column name="years_of_experience" valueNumeric="50"/>
+            <column name="hourly_rate" valueNumeric="200.00"/>
+            <column name="deleted" valueBoolean="false"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

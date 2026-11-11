@@ -11,5 +11,4 @@ class QueryDslInfoblipDemoApplicationTests {
 	@Test
 	fun contextLoads() {
 	}
-
 }
