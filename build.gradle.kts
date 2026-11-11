@@ -15,10 +15,6 @@ java {
     }
 }
 
-repositories {
-    mavenCentral()
-}
-
 val infobipVersion = "11.0.1"
 
 dependencies {
@@ -43,11 +39,16 @@ dependencies {
 }
 
 configurations.configureEach {
-    resolutionStrategy.eachDependency {
-        if (requested.group == "com.infobip") {
-            useVersion("11.0.1")
-            because("Reproducing the bug fixed in Infobip 11.0.2")
-        }
+    resolutionStrategy.dependencySubstitution {
+        substitute(
+            module("com.infobip:infobip-spring-data-jdbc-querydsl")
+        ).using(
+            module(
+                "com.github.GavynHolt.infobip-spring-data-querydsl:" +
+                        "infobip-spring-data-jdbc-querydsl:" +
+                        "fix~unpaged-pageable-sort-SNAPSHOT"
+            )
+        )
     }
 }
 
