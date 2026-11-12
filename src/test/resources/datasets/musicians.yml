@@ -1,0 +1,50 @@
+musician:
+  - id: "00000000-0000-0000-0000-000000000001"
+    first_name: "Chick"
+    last_name: "Corea"
+    email: "chick.corea@example.com"
+    city: "Chelsea"
+    instrument: "PIANO"
+    years_of_experience: 60
+    hourly_rate: 250.00
+    deleted: false
+
+  - id: "00000000-0000-0000-0000-000000000002"
+    first_name: "Pat"
+    last_name: "Metheny"
+    email: "pat.metheny@example.com"
+    city: "Lee's Summit"
+    instrument: "GUITAR"
+    years_of_experience: 50
+    hourly_rate: 250.00
+    deleted: false
+
+  - id: "00000000-0000-0000-0000-000000000003"
+    first_name: "Roy"
+    last_name: "Haynes"
+    email: "roy.haynes@example.com"
+    city: "Boston"
+    instrument: "DRUMS"
+    years_of_experience: 75
+    hourly_rate: 200.00
+    deleted: false
+
+  - id: "00000000-0000-0000-0000-000000000004"
+    first_name: "Antonio"
+    last_name: "Sanchez"
+    email: "antonio.sanchez@example.com"
+    city: "Mexico City"
+    instrument: "DRUMS"
+    years_of_experience: 30
+    hourly_rate: 150.00
+    deleted: false
+
+  - id: "00000000-0000-0000-0000-000000000005"
+    first_name: "Esperanza"
+    last_name: "Spalding"
+    email: "esperanza.spalding@example.com"
+    city: "Portland"
+    instrument: "BASS"
+    years_of_experience: 20
+    hourly_rate: 175.00
+    deleted: false
